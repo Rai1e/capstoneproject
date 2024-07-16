@@ -1,0 +1,32 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+</head>
+<body>
+	<button id="location-button">Get user location</button>
+	<div id="output"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+	const successCallback = (position) => {
+		console.log(position);
+	};
+	
+	const errorCallback = (error) => {
+		console.log(error);
+	};
+	
+	const options = {
+		enableHighAccuracy: true,
+		timeout: 10000,
+	};
+		
+	$("#location-button").click(function(){
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+		}
+				
+	});
+</script>
+</html>
+
